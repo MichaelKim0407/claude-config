@@ -1,0 +1,8 @@
+[project]
+name = "hooks"
+version = "0.1.0"
+description = "Pre-commit hook configuration for claude-config"
+requires-python = ">=3.12"
+dependencies = [
+    "pre-commit>=4.5.1",
+]
