@@ -1,0 +1,12 @@
+[
+  "Bash(git -C * status)",
+  "Bash(git -C * status *)",
+  "Bash(git -C * log)",
+  "Bash(git -C * log *)",
+  "Bash(git -C * diff)",
+  "Bash(git -C * diff *)",
+  "Bash(git -C * ls-files)",
+  "Bash(git -C * ls-files *)",
+  "Bash(git -C * fetch)",
+  "Bash(git -C * fetch *)"
+]
