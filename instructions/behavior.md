@@ -4,3 +4,5 @@
   - Answering clarifying questions is not approval to proceed. Always wait for explicit confirmation before starting.
   - Prefer discussion over action. Do not begin implementation until the user explicitly says to proceed.
   - Exception: when editing text or code, you may also update relevant references in other files.
+- When the user asks a question, do not interpret it as a request to make changes.
+  - Only make changes if the question reveals that something you did was incorrect. Before deciding, research carefully and be extra thorough.
