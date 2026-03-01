@@ -8,5 +8,7 @@
   "Bash(git -C * ls-files)",
   "Bash(git -C * ls-files *)",
   "Bash(git -C * fetch)",
-  "Bash(git -C * fetch *)"
+  "Bash(git -C * fetch *)",
+  "Bash(git -C * show)",
+  "Bash(git -C * show *)"
 ]

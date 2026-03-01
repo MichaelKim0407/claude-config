@@ -30,6 +30,7 @@ def main():
         print(f"Would merge {len(added)} new entries into {SETTINGS_PATH}:")
     else:
         existing.extend(added)
+        settings["permissions"]["allow"] = sorted(settings["permissions"]["allow"])
         SETTINGS_PATH.write_text(json.dumps(settings, indent=2) + "\n", encoding="utf-8")
         print(f"Merged {len(added)} new entries into {SETTINGS_PATH}:")
     for e in added:
