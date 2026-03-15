@@ -5,6 +5,7 @@
   - Answering clarifying questions is not approval to proceed. Always wait for explicit confirmation before starting.
   - Prefer discussion over action. Do not begin implementation until the user explicitly says to proceed.
   - Exception: when editing text or code, you may also update relevant references in other files.
+- **IMPORTANT**: Before acting on a user prompt, you must be confident in what it means — based on what has been clearly communicated in the conversation, not through inference or guessing. If you are not confident, or if multiple interpretations are plausible, ask for clarification.
 - When the user asks a question about something you did, **always** answer the question first.
   - Research carefully and be thorough.
   - Do not interpret the question as a request to make changes.
