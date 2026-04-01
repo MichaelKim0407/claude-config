@@ -5,7 +5,7 @@ disable-model-invocation: true
 allowed-tools: Read, Edit, Write, Bash(python *)
 ---
 
-Ensure `~/.claude/CLAUDE.md` imports `MAIN.md` from this repo, and merge repo permissions into `~/.claude/settings.json`.
+Ensure `~/.claude/CLAUDE.md` imports `MAIN.md` from this repo, and update `~/.claude/settings.json` and supporting files.
 
 ## Task 1: CLAUDE.md import
 
@@ -18,10 +18,14 @@ Ensure `~/.claude/CLAUDE.md` imports `MAIN.md` from this repo, and merge repo pe
 4. If it is not present, add the import line to `~/.claude/CLAUDE.md`. Place it at the beginning of the file, or grouped with other imports if any exist.
 5. Report what was changed.
 
-## Task 2: permissions merge
+## Task 2: update settings
 
-1. Run `merge_permissions.py` from this repo to merge `permissions/allow` entries into `~/.claude/settings.json`:
+1. Run `update_settings.py` from this repo:
    ```
-   python <absolute-repo-path>/.claude/skills/install/merge_permissions.py
+   python <absolute-repo-path>/.claude/skills/install/update_settings.py
    ```
+   This script handles three things:
+   - Merges `permissions/allow` entries into `~/.claude/settings.json`
+   - Copies `statusline/statusline-command.sh` to `~/.claude/` (skips if already present)
+   - Adds the `statusLine` key to `~/.claude/settings.json` (skips if already present)
 2. Report what was changed.

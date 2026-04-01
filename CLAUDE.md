@@ -7,6 +7,7 @@ This repo stores personal Claude instructions shared across devices.
 - `MAIN.md` — imported into global memory (`~/.claude/CLAUDE.md`). Imports all files under `instructions/`.
 - `instructions/` — individual instruction files, each covering a specific topic.
 - `permissions/` — JSON files, one per topic, each containing a list of `permissions.allow` entries to merge into `~/.claude/settings.json`.
+- `statusline/` — statusline script installed to `~/.claude/` by `/install`.
 - `.claude/skills/` — project-level skills for managing this repo.
 
 ## Instructions import chain
@@ -22,7 +23,7 @@ This repo stores personal Claude instructions shared across devices.
 ## Skills
 
 - `/sync` — ensures all files under `instructions/` are imported in `MAIN.md`
-- `/install` — ensures `MAIN.md` is imported in `~/.claude/CLAUDE.md`, and merges `permissions/` entries into `~/.claude/settings.json`
+- `/install` — ensures `MAIN.md` is imported in `~/.claude/CLAUDE.md`, merges `permissions/` entries into `~/.claude/settings.json`, and installs the statusline script
 
 ## Working with this repo
 
