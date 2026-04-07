@@ -29,6 +29,7 @@ A file belongs in the commit whose purpose it serves, not necessarily the one cu
 - Use the imperative mood in the subject line (e.g. "Fix bug", not "Fixed bug")
 - Wrap the body at 72 characters
 - Use the body to explain what and why, not how
+- End the message with a blank line followed by the `Co-Authored-By` trailer specified in the system instructions
 
 ## How to perform a fixup
 
