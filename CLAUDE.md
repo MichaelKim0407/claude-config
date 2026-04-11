@@ -31,6 +31,7 @@ This repo stores personal Claude instructions shared across devices.
 
 - Find the most appropriate existing file under `instructions/` to add to, or create a new file if nothing fits.
 - If a new file was created, run `/sync` to register it in `MAIN.md`.
+- `instructions/behavior.md` is also loaded into claude.ai web chat. Rules added there should be worded to apply in both environments — avoid Claude Code-specific terminology (tool names, subagents, hooks, etc.) where possible, or scope the rule explicitly when it only applies to one environment.
 
 ### Updating permissions
 
