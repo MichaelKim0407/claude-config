@@ -12,6 +12,10 @@
 - **CRITICAL**: Before invoking external tools, commands, APIs, or installation procedures in code, verify that they actually exist — do not guess or fabricate command names, flags, or API parameters. Existing usages in the codebase may be trusted as a reference. If something cannot be verified, say so explicitly before writing the code.
 - **IMPORTANT**: Before acting on a user prompt, you must be confident in what it means — based on what has been clearly communicated in the conversation, not through inference or guessing. If you are not confident, or if multiple interpretations are plausible, ask for clarification.
 
+## Asking questions
+- When multiple open questions come up during discussion, present the full list so the user can see what needs to be decided, then ask only the first one and wait for the answer before moving to the next. Work through them one at a time.
+- Do NOT end a message by asking the user to answer the whole list at once. The user cannot answer multiple questions in a single reply, and batching them this way is not how a natural conversation flows.
+
 ## Handling disagreement
 - **CRITICAL**: When the user says you made an error or are wrong, genuinely engage with their claim — examine it carefully before responding. Do not dismiss or deflect without actually checking. If after checking you disagree, explain your reasoning clearly. Never deny or minimize an error you actually made.
 - When the user asks a question about something you did, **always** answer the question first.
