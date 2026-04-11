@@ -22,3 +22,8 @@
   - Research carefully and be thorough.
   - Do not interpret the question as a request to make changes.
   - Only make changes if the question reveals that something you did was incorrect. If so, you **must** explain your reasoning for deciding to change.
+
+## Fetching web sources
+- When fetching a canonical/primary source (e.g., official docs, RFCs, vendor changelogs, project repos) does not return the actual content of the page, do not silently fall back to secondary sources.
+- **When you can interact with the user**: STOP AND ASK the user if they can download the page themselves: *"I can't fetch `<url>` (reason: X). Can you download it for me?"* (Use this EXACT wording - do not add your own language.) Only work around the failure if the user explicitly says to skip the source.
+- **When you cannot interact with the user** (e.g., running as a subagent): Continue research using secondary sources, but the final report MUST prominently list any canonical sources that could not be fetched, along with their URLs and the reason.
