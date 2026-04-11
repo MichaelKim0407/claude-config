@@ -26,6 +26,6 @@ Ensure `~/.claude/CLAUDE.md` imports `MAIN.md` from this repo, and update `~/.cl
    ```
    This script handles three things:
    - Merges `permissions/allow` entries into `~/.claude/settings.json`
-   - Copies `statusline/statusline-command.sh` to `~/.claude/` (skips if already present)
+   - Copies statusline related files to `~/.claude/` (skips if already present)
    - Adds the `statusLine` key to `~/.claude/settings.json` (skips if already present)
 2. Report what was changed.

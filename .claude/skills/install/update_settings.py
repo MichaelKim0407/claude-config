@@ -7,10 +7,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent.parent.parent  # .claude/skills/install/ -> repo root
 PERMISSIONS_DIR = REPO_ROOT / "permissions"
-STATUSLINE_SRC = REPO_ROOT / "statusline" / "statusline-command.sh"
 CLAUDE_DIR = Path.home() / ".claude"
 SETTINGS_PATH = CLAUDE_DIR / "settings.json"
-STATUSLINE_DEST = CLAUDE_DIR / "statusline-command.sh"
 
 
 def to_bash_path(p: Path) -> str:
@@ -25,6 +23,48 @@ def to_bash_path(p: Path) -> str:
     return str(p)
 
 
+class StatuslineInstaller:
+    SRC_DIR = REPO_ROOT / "statusline"
+    DEST_DIR = CLAUDE_DIR
+    FILES = (
+        "statusline-command.sh",
+        "statusline-command.py",
+    )
+    SH_DEST = DEST_DIR / "statusline-command.sh"
+
+    def __init__(self, dry_run: bool, settings: dict):
+        self.dry_run = dry_run
+        self.settings = settings
+
+    def __call__(self) -> bool:
+        self.install_scripts()
+        return self.configure_setting()
+
+    def install_scripts(self) -> None:
+        missing = [f for f in self.FILES if not (self.DEST_DIR / f).exists()]
+        if not missing:
+            print("Statusline scripts: already present, skipping")
+            return
+        for f in missing:
+            dest = self.DEST_DIR / f
+            print(f"Statusline scripts: copying {f} to {dest}")
+            if not self.dry_run:
+                shutil.copy(self.SRC_DIR / f, dest)
+
+    def configure_setting(self) -> bool:
+        if "statusLine" in self.settings:
+            print("statusLine setting: already configured, skipping")
+            return False
+
+        config = {"type": "command", "command": f"bash {to_bash_path(self.SH_DEST)}"}
+        print(f"statusLine setting: {config}")
+        if self.dry_run:
+            return False
+
+        self.settings["statusLine"] = config
+        return True
+
+
 class Installer:
     def __init__(self, dry_run: bool):
         self.dry_run = dry_run
@@ -33,8 +73,7 @@ class Installer:
 
     def __call__(self):
         self.merge_permissions()
-        self.install_statusline_script()
-        self.configure_statusline_setting()
+        self.install_statusline()
         if self.settings_changed:
             SETTINGS_PATH.write_text(json.dumps(self.settings, indent=2) + "\n", encoding="utf-8")
 
@@ -59,29 +98,10 @@ class Installer:
         self.settings["permissions"]["allow"] = sorted(existing)
         self.settings_changed = True
 
-    def install_statusline_script(self):
-        if STATUSLINE_DEST.exists():
-            print("Statusline script: already present, skipping")
-            return
-
-        print(f"Statusline script: copying to {STATUSLINE_DEST}")
-        if self.dry_run:
-            return
-
-        shutil.copy(STATUSLINE_SRC, STATUSLINE_DEST)
-
-    def configure_statusline_setting(self):
-        if "statusLine" in self.settings:
-            print("statusLine setting: already configured, skipping")
-            return
-
-        config = {"type": "command", "command": f"bash {to_bash_path(STATUSLINE_DEST)}"}
-        print(f"statusLine setting: {config}")
-        if self.dry_run:
-            return
-
-        self.settings["statusLine"] = config
-        self.settings_changed = True
+    def install_statusline(self):
+        installer = StatuslineInstaller(self.dry_run, self.settings)
+        if installer():
+            self.settings_changed = True
 
 
 def main():

@@ -1,34 +1,29 @@
 #!/usr/bin/env bash
-python -c '
-import sys, json
 
-d = json.load(sys.stdin)
+set -e
 
-parts = []
+# Detect color support
+color_supported=0
+if [ -z "$NO_COLOR" ] && command -v tput >/dev/null 2>&1 && [ "$(tput colors 2>/dev/null || echo 0)" -ge 8 ]; then
+    color_supported=1
+fi
 
-cwd = d.get("cwd") or (d.get("workspace") or {}).get("current_dir") or ""
-if cwd:
-    parts.append(cwd)
+# Check python availability
+if ! command -v python >/dev/null 2>&1; then
+    msg="python command not available"
+    if [ "$color_supported" = "1" ]; then
+        printf '\033[31m%s\033[0m' "$msg"
+    else
+        printf '%s' "$msg"
+    fi
+    exit 0
+fi
 
-model = (d.get("model") or {}).get("display_name") or ""
-if model:
-    parts.append(model)
+cd "$(dirname "$0")"
 
-ctx = d.get("context_window") or {}
-used = ctx.get("used_percentage")
-if used is not None:
-    parts.append(f"ctx:{round(used)}%")
+ARGS=()
+if [ "$color_supported" = "1" ]; then
+    ARGS+=("--color")
+fi
 
-rl = d.get("rate_limits") or {}
-five = (rl.get("five_hour") or {}).get("used_percentage")
-week = (rl.get("seven_day") or {}).get("used_percentage")
-rate_parts = []
-if five is not None:
-    rate_parts.append(f"5h:{round(five)}%")
-if week is not None:
-    rate_parts.append(f"7d:{round(week)}%")
-if rate_parts:
-    parts.append(" ".join(rate_parts))
-
-print(" | ".join(parts), end="")
-'
+python statusline-command.py "${ARGS[@]}"
