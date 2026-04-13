@@ -3,6 +3,7 @@
 - Always use `git -C <repo>` to specify the repo path explicitly. Do not use bare `git` without `-C`, and do not compound `cd <repo> && git`.
 - Never chain `git add`, `git commit`, or `git push` commands. Execute each separately.
 - When asked to checkout a branch, always fetch first.
+- When referencing the `main` or `develop` branch, always use the remote reference (e.g. `origin/main`, `origin/develop`). Never create a local branch for them, and never reference them as local branches.
 
 ## Atomic commits
 
