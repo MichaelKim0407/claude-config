@@ -1,12 +1,6 @@
 [
   "Bash(ls)",
   "Bash(ls *)",
-  "Bash(grep)",
-  "Bash(grep *)",
-  "Bash(cat)",
-  "Bash(cat *)",
-  "Bash(head)",
-  "Bash(head *)",
   "Bash(tail)",
   "Bash(tail *)",
   "Bash(wc)",
