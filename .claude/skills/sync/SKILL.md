@@ -1,7 +1,6 @@
 ---
 name: sync
 description: Ensures all files under instructions/ are imported in MAIN.md. Use when a new instruction file has been added.
-disable-model-invocation: true
 allowed-tools: Bash(python *)
 ---
 
