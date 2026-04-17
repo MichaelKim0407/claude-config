@@ -34,7 +34,8 @@ A file belongs in the commit whose purpose it serves, not necessarily the one cu
 
 ## How to perform a fixup
 
-1. Find the relevant commit with `git log --oneline -- <file>`.
-2. Stage the changes.
-3. Run `git commit --fixup=<hash>` to create the fixup commit.
-4. Run `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <hash>~1` to squash it in non-interactively.
+1. Find the relevant commit with `git log --oneline -20`.
+2. Show the user the commit hash and subject line, and ask if it is the right one.
+3. Stage the changes.
+4. Run `git commit --fixup=<hash>` to create the fixup commit.
+5. Run `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <hash>~1` to squash it in non-interactively.
