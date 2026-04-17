@@ -7,6 +7,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent.parent.parent  # .claude/skills/install/ -> repo root
 PERMISSIONS_DIR = REPO_ROOT / "permissions"
+SKILLS_DIR = REPO_ROOT / "skills"
 CLAUDE_DIR = Path.home() / ".claude"
 SETTINGS_PATH = CLAUDE_DIR / "settings.json"
 
@@ -73,6 +74,7 @@ class Installer:
 
     def __call__(self):
         self.merge_permissions()
+        self.install_skills()
         self.install_statusline()
         if self.settings_changed:
             SETTINGS_PATH.write_text(json.dumps(self.settings, indent=2) + "\n", encoding="utf-8")
@@ -97,6 +99,15 @@ class Installer:
         existing.extend(added)
         self.settings["permissions"]["allow"] = sorted(existing)
         self.settings_changed = True
+
+    def install_skills(self):
+        dest_dir = CLAUDE_DIR / "skills"
+        if not SKILLS_DIR.exists():
+            print("Skills: source directory not found, skipping")
+            return
+        print(f"Skills: copying {SKILLS_DIR} to {dest_dir}")
+        if not self.dry_run:
+            shutil.copytree(SKILLS_DIR, dest_dir, dirs_exist_ok=True)
 
     def install_statusline(self):
         installer = StatuslineInstaller(self.dry_run, self.settings)

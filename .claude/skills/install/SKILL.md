@@ -1,6 +1,6 @@
 ---
 name: install
-description: Ensures MAIN.md from this repo is imported in ~/.claude/CLAUDE.md, and merges repo permissions into ~/.claude/settings.json. Use when setting up on a new device.
+description: Ensures MAIN.md from this repo is imported in ~/.claude/CLAUDE.md, merges repo permissions into ~/.claude/settings.json, and installs global skills. Use when setting up on a new device.
 disable-model-invocation: true
 allowed-tools: Read, Edit, Write, Bash(python *)
 ---
@@ -24,8 +24,9 @@ Ensure `~/.claude/CLAUDE.md` imports `MAIN.md` from this repo, and update `~/.cl
    ```
    python <absolute-repo-path>/.claude/skills/install/update_settings.py
    ```
-   This script handles three things:
+   This script handles four things:
    - Merges `permissions/allow` entries into `~/.claude/settings.json`
+   - Copies global skills from `skills/` to `~/.claude/skills/` (always overwrites)
    - Copies statusline related files to `~/.claude/` (skips if already present)
    - Adds the `statusLine` key to `~/.claude/settings.json` (skips if already present)
 2. Report what was changed.
