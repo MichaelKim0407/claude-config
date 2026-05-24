@@ -3,6 +3,7 @@
 - Always use `git -C <repo>` to specify the repo path explicitly. Do not use bare `git` without `-C`, and do not compound `cd <repo> && git`.
 - Never chain `git add`, `git commit`, or `git push` commands. Execute each separately.
 - When asked to commit changes, use the `/commit` skill.
+- For multiline commit messages, run the commit through the Bash tool with a quoted heredoc (`git -C <repo> commit -F - <<'EOF'` … `EOF`). Never use the PowerShell here-string syntax (`@'…'@`) — it does not work correctly.
 - When asked to checkout a branch, always fetch first.
 - When referencing the `main` or `develop` branch, always use the remote reference (e.g. `origin/main`, `origin/develop`). Never create a local branch for them, and never reference them as local branches.
 
