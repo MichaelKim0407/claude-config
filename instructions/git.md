@@ -1,6 +1,6 @@
 # Git
 
-- Always use `git -C <repo>` to specify the repo path explicitly. Do not use bare `git` without `-C`, and do not compound `cd <repo> && git`.
+- **IMPORTANT**: Always use `git -C <repo>` to specify the repo path explicitly. Do not use bare `git` without `-C`, and do not compound `cd <repo> && git`. This applies everywhere, including skill calls.
 - Never chain `git add`, `git commit`, or `git push` commands. Execute each separately.
 - When asked to commit changes, use the `/commit` skill.
 - For multiline commit messages, run the commit through the Bash tool with a quoted heredoc (`git -C <repo> commit -F - <<'EOF'` … `EOF`). Never use the PowerShell here-string syntax (`@'…'@`) — it does not work correctly.

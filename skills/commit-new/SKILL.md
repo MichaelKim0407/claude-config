@@ -3,6 +3,8 @@ name: commit-new
 description: Create a new git commit with proper staging review and message formatting.
 ---
 
+All `git` commands below are written bare for readability — always run them as `git -C <repo> …` per global instructions.
+
 1. Run `git status` to see what is staged and unstaged. Run `git diff` and/or `git diff --cached` as needed to cover all working-directory changes. If the changes span multiple concerns, propose a split into separate commits and let the user review before proceeding.
 2. If anything currently staged is not part of this commit's scope, run `git reset` to unstage it.
 3. Run `git add` on the files relevant to this commit.

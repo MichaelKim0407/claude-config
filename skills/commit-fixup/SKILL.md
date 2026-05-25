@@ -3,6 +3,8 @@ name: commit-fixup
 description: Fixup or amend an existing git commit.
 ---
 
+All `git` commands below are written bare for readability — always run them as `git -C <repo> …` per global instructions.
+
 Execute each section sequentially. Do not parallelize across sections.
 
 ## Staging review
