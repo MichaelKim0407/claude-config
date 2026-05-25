@@ -24,3 +24,8 @@ A file belongs in the commit whose purpose it serves, not necessarily the one cu
 - Wrap the body at 72 characters
 - Use the body to explain what and why, not how
 - End the message with a blank line followed by the `Co-Authored-By` trailer specified in the system instructions
+
+## Pull / merge requests
+
+- When asked to write a PR or MR body, or to create a pull request or merge
+  request, use the `/pr-body` skill.
