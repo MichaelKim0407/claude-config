@@ -96,11 +96,17 @@ class ModelSegment(AbstractSegment):
     def _display_name(self) -> typing.Optional[str]:
         return self._model.get("display_name")
 
+    @cached_property
+    def _effort_level(self) -> typing.Optional[str]:
+        return self.data.get("effort", {}).get("level")
+
     def __bool__(self) -> bool:
         return self._display_name is not None
 
     def __str__(self) -> str:
-        return self._display_name
+        if self._effort_level is None:
+            return self._display_name
+        return f"{self._display_name} ({self._effort_level})"
 
 
 class ContextUsageSegment(AbstractSegment):
