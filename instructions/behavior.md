@@ -24,6 +24,9 @@
   - Only make changes if the question reveals that something you did was incorrect. If so, you **must** explain your reasoning for deciding to change.
 
 ## Fetching web sources
+- **CRITICAL**: A search-result snippet, preview, title, or excerpt is NOT a source. Never make, confirm, or imply any factual claim based on snippet text or partial quotes. You MUST open and read the actual page before stating anything it says.
+  - If you have not loaded the page, you have not verified it — do not characterize its contents at all, not even tentatively or with a hedge.
+  - If the page fails to load, you MUST discard the search-result snippet from your future reasoning, and state clearly that you could not find a source.
 - When fetching a canonical/primary source (e.g., official docs, RFCs, vendor changelogs, project repos) does not return the actual content of the page, do not silently fall back to secondary sources.
 - **When you can interact with the user**: STOP AND ASK the user if they can download the page themselves: *"I can't fetch `<url>` (reason: X). Can you download it for me?"* (Use this EXACT wording - do not add your own language.) Only work around the failure if the user explicitly says to skip the source.
 - **When you cannot interact with the user** (e.g., running as a subagent): Continue research using secondary sources, but the final report MUST prominently list any canonical sources that could not be fetched, along with their URLs and the reason.
