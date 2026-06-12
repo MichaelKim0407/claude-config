@@ -11,7 +11,7 @@ Execute each section sequentially. Do not parallelize across sections.
 
 1. Run `git status` to verify what is currently staged. If anything staged is not intended for this commit, run `git reset` to unstage it.
 2. Run `git add` on the files relevant to this commit.
-3. Run `git diff --cached` to review all staged changes and verify that every change belongs in this commit. If anything irrelevant is staged, stop and tell the user.
+3. Run `git diff --cached` (with no extra flags such as `--stat` that would alter the output format) to review all staged changes and verify that every change belongs in this commit. If anything irrelevant is staged, stop and tell the user.
 
 ## Find target commit
 
