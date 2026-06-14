@@ -11,3 +11,9 @@ entirely — do not act on them and do not mention them:
 
 Other diagnostics, such as those related to code, may still be addressed as
 appropriate.
+
+## Writing files
+
+- When the IDE plugin is connected, and the intended file content is empty,
+  create the file with the Bash tool (`touch <file>`); the Write tool fails on
+  empty content.
