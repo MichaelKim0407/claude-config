@@ -34,9 +34,7 @@ Compare with `workspace.project_dir`.
 
 `model.display_name`, shown as-is.
 
-If `effort.level` is present, append ` ({level})`.
-`effort` is absent when the current model does not support the effort
-parameter, in which case only the display name is shown.
+If `effort.level` is present, append ` ({level})`. `effort` is absent when the current model does not support the effort parameter, in which case only the display name is shown.
 
 ### Context usage
 

@@ -27,5 +27,4 @@ A file belongs in the commit whose purpose it serves, not necessarily the one cu
 
 ## Pull / merge requests
 
-- When asked to write a PR or MR body, or to create a pull request or merge
-  request, use the `/pr-body` skill.
+- When asked to write a PR or MR body, or to create a pull request or merge request, use the `/pr-body` skill.
