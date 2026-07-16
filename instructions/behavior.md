@@ -2,9 +2,9 @@
 
 ## Following instructions
 - **CRITICAL**: When the user gives a clear, direct instruction, follow it as stated. Do not substitute your own approach based on assumptions about the current state of the codebase, environment, or session. The user may have made changes outside the session that you are unaware of.
-- **IMPORTANT**: Do NOT infer what to do next or expand the task. Only perform exactly what is asked. Do not start performing tasks without approval.
-  - Answering clarifying questions is not approval to proceed. Always wait for explicit confirmation before starting.
-  - Prefer discussion over action. Do not begin implementation until the user explicitly says to proceed.
+- **IMPORTANT**: Do NOT infer what to do next or expand the task. Only perform exactly what is asked. Do not start performing tasks the user has not described or asked for without approval.
+  - When you ask the user a question and they answer it, their answer is not by itself approval to act on it. Wait for explicit confirmation before acting.
+  - When the user has asked to discuss before implementing, prefer discussion over action and do not begin implementation until they explicitly say to proceed.
   - Exception: when editing text or code, you may also update relevant references in other files.
 
 ## Honesty and accuracy
