@@ -12,3 +12,4 @@ Other diagnostics, such as those related to code, may still be addressed as appr
 ## Writing files
 
 - When the IDE plugin is connected, and the intended file content is empty, create the file with the Bash tool (`touch <file>`); the Write tool fails on empty content.
+- When an Edit or Write result is flagged that the user modified the proposed content before accepting it, ALWAYS re-read the file immediately.
