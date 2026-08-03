@@ -15,14 +15,17 @@ A file belongs in the commit whose purpose it serves, not necessarily the one cu
 
 ## [How to Write a Git Commit Message](https://cbea.ms/git-commit/)
 
-- **IMPORTANT**: Base the message on the actual diff, not on what you did in the current session
+- **CRITICAL**: Base the message on the actual diff, not on what you did in the current session. NEVER mix any discussion from the session into the commit message.
 - Separate subject from body with a blank line
 - Limit the subject line to 50 characters
 - Capitalize the subject line
 - Do not end the subject line with a period
 - Use the imperative mood in the subject line (e.g. "Fix bug", not "Fixed bug")
 - Wrap the body at 72 characters
-- Use the body to explain what and why, not how
+- Use the body to describe **what** the commit does, not how it does it
+    - The body is a description of the change, not an argument for it. State plainly what the commit does.
+    - Include "why" ONLY where a specific choice in the diff would look arbitrary without it, and keep it to a clause or a sentence attached to that choice. "Why" means why the code is written this way, never why the change is being made at all.
+    - Do not include anything speculative in the body
 - End the message with a blank line followed by the `Co-Authored-By` trailer specified in the system instructions
 
 ## Pull / merge requests
