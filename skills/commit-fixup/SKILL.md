@@ -28,7 +28,13 @@ Execute each section sequentially. Do not parallelize across sections.
 
 Branch based on the target commit and whether the message needs updating:
 
-- **Last commit, keep message:** `git commit --amend --no-edit`
-- **Last commit, update message:** `git commit --amend` with the new message
-- **Older commit, keep message:** `git commit --fixup=<hash>`, then `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <hash>~1`
-- **Older commit, update message:** `git commit --fixup=amend:<hash>` with the new message, then `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <hash>~1`
+- **Last commit, keep message:**
+    - `git commit --amend --no-edit`
+- **Last commit, update message:**
+    - `git commit --amend` with the new message
+- **Older commit, keep message:**
+    - `git commit --fixup=<hash>`
+    - `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <hash>~1`
+- **Older commit, update message:**
+    - `git commit -F -` with a heredoc: first line `amend! <original subject line>`, blank line, then the rewritten message (new subject line, blank line, body).
+    - `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <hash>~1`
