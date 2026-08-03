@@ -29,8 +29,8 @@ For example, with `Bash(cat *)` allowed:
 
 - Patterns are glob-based (e.g., `*` is a wildcard).
 - Use two entries per command to allow both with and without arguments:
-  ```json
-  "Bash(git -C * status)",
-  "Bash(git -C * status *)"
-  ```
+    ```json
+    "Bash(git -C * status)",
+    "Bash(git -C * status *)"
+    ```
 - Avoid trailing `*` on subcommand names (e.g., `Bash(git -C * diff*)`) as it would also match unintended subcommands like `difftool`.
